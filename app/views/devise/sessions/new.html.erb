@@ -27,6 +27,13 @@
         <% end %>
         <br/>
         <%= render "devise/shared/links" %>
+        <hr>
+        <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path,method: :post, class: "btn btn-google btn-user btn-block" %>
+
+        <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path,method: :post, class: "btn btn-facebook btn-user btn-block" %>
+
+        <%= link_to "Sign in with Github", user_github_omniauth_authorize_path,method: :post, class: "btn github-btn btn-user btn-block", style: "background-color: black; color: white; border-color: #fff" %>          </form>
+
       </div>
     </div>
   </div>
