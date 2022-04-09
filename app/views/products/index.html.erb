@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Products</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+
+<%= image_tag(product.image, size: '300x350',class: "product-show") if product.image.attached?%>
+<%= product.name %>
+<%= product.description %>
+<%= product.price %>
+<%= link_to 'Show', product %></td>
+<%= link_to 'Edit', edit_product_path(product) %></td>
+<%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Product', new_product_path %>
