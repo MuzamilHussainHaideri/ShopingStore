@@ -19,6 +19,8 @@
     <div class="column is-3 is-offset-1">
       <div class="bg-white pa4 border-radius-3">
         <h4 class="title is-5 has-text-centered"><%= number_to_currency(@product.price) %></h4>
+        <%= button_to 'Add to cart','#', class: 'button is-warning add-to-cart' %>
+<!--        line_items_path(product_id: @product)-->
     </div>
     </div>
   </div>
