@@ -10,11 +10,11 @@
   </section>
 <% end %>
 
-<div class="instrument-index-grid pt4">
+<div class="product-index-grid pt4">
   <% @products.each do |product| %>
 
-    <div class="instrument border-light">
-      <div class="instrument-thumb">
+    <div class="product border-light">
+      <div class="product-thumb">
         <%= image_tag(product.image, size: '200x250',class: "product-show") if product.image.attached?%>
 
       </div>
