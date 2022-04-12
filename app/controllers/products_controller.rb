@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
 
   # GET /products/new
   def new
-    @product = current_user.product.build
+    @product = current_user.products.build
   end
 
   # GET /products/1/edit
