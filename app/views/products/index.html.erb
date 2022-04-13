@@ -10,6 +10,14 @@
   </section>
 <% end %>
 
+<h1 class="current-category"><%= params[:category] %></h1>
+
+<% if @products.count == 0 %>
+
+  <h1>There are no books currently in this category</h1>
+
+<% else %>
+
 <div class="product-index-grid pt4">
   <% @products.each do |product| %>
 
@@ -35,3 +43,4 @@
     </div>
   <% end %>
 </div>
+<% end %>

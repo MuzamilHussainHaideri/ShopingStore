@@ -4,7 +4,12 @@ class ProductsController < ApplicationController
 
   # GET /products or /products.json
   def index
-    @products = Product.all.order("created_at desc")
+    if params[:category].blank?
+      @products = Product.all.order("created_at desc")
+    else
+      @category_id = Category.find_by(name: params[:category]).id
+      @products = Product.where(:category_id => @category_id).order("created_at DESC")
+    end
   end
 
   # GET /products/1 or /products/1.json
@@ -14,16 +19,18 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = current_user.products.build
+    @categories = Category.all.map{|c| [c.name, c.id]}
   end
 
   # GET /products/1/edit
   def edit
+    @categories = Category.all.map{|c| [c.name, c.id]}
   end
 
   # POST /products or /products.json
   def create
     @product = current_user.products.build(product_params)
-
+    @product.category_id = params[:category_id]
     respond_to do |format|
       if @product.save
         format.html { redirect_to product_url(@product), notice: "Product was successfully created." }
@@ -38,6 +45,7 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1 or /products/1.json
   def update
     respond_to do |format|
+      @product.category_id = params[:category_id]
       if @product.update(product_params)
         format.html { redirect_to product_url(@product), notice: "Product was successfully updated." }
         format.json { render :show, status: :ok, location: @product }
@@ -66,6 +74,6 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:name, :description, :price, :image)
+      params.require(:product).permit(:name, :description, :price, :image, :category_id)
     end
 end

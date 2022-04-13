@@ -25,6 +25,18 @@
       <div class="navbar-item">
         <div class="field is-grouped">
 
+
+          <li class="dropdown">
+            <a href="#" class="navbar-item button is-dark" data-toggle="dropdown" role="button" >Categories <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <% Category.all.each do |category| %>
+                <li class="<%= 'active' if params[:category] == category.name %>">
+                  <%= link_to category.name, products_path(category: category.name), class: "link" %>
+                </li>
+              <% end %>
+            </ul>
+          </li>
+
           <% if total_cart_items %>
             <%= link_to cart_path(@cart), class:"navbar-item button is-warning" do %>
               <span class="icon is-small">
@@ -35,7 +47,6 @@
                 </span>
             <% end %>
           <% end %>
-
 
           <% if user_signed_in? %>
 
