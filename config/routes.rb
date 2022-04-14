@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :line_items
   resources :carts
-  resources :products
+  resources :products do
+    resources :reviews
+  end
   devise_for :users, controllers: { registrations: 'users/registrations',omniauth_callbacks: 'users/omniauth_callbacks'  }
 
   root 'products#index'

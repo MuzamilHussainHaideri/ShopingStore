@@ -1,0 +1,22 @@
+<div class="review">
+  <p class="review-comment"><%= review.comment %></p>
+  <span>
+    <h5>By</h5>
+    <h5 ><%= review.user.name %></h5>
+    <h5 ><%= review.created_at.strftime("%m/%d/%Y") %></h5>
+  </span>
+
+  <% if user_signed_in? %>
+    <% if review.user_id == current_user.id %>
+
+      <div class="links btn-group">
+
+        <%= link_to "Edit", edit_product_review_path(review.product, review), class: "btn btn-custom" %>
+        <%= link_to "Delete", product_review_path(review.product, review), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-custom" %>
+
+      </div>
+
+    <% end %>
+  <% end %>
+
+</div>

@@ -4,6 +4,7 @@ class Product < ApplicationRecord
   has_one_attached :image
   has_many :line_items
   belongs_to :category
+  has_many :reviews
 
   validates :description, length: { maximum: 1000, too_long: "%{count} characters is the maximum aloud. "}
   validates :name, length: { maximum: 140, too_long: "%{count} characters is the maximum aloud. "}
