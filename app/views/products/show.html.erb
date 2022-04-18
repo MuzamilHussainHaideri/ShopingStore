@@ -15,7 +15,10 @@
         <h3 class="subtitle is-4">Description</h3>
         <%= @product.description %>
         <br>
+        <% if user_signed_in? %>
         <%= link_to 'Edit', edit_product_path(@product) %> |
+        <%= link_to 'Delete', @product, method: :delete, data: { confirm: "Are you sure ?" } %> |
+          <% end %>
         <%= link_to 'Back', products_path %>
       </div>
     </div>
