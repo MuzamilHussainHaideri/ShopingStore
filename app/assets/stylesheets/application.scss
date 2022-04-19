@@ -34,6 +34,7 @@ $link-hover: #222;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 
   .product {
+    margin-left: 10px;
     border-left: 0;
     border-top: 0;
     position: relative;
