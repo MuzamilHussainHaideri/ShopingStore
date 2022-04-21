@@ -35,6 +35,7 @@ gem "omniauth-rails_csrf_protection"
 gem 'omniauth-facebook'
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 gem 'bootstrap-sass'
+gem 'stripe', '~> 5.52'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
