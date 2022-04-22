@@ -21,6 +21,7 @@
 </div>
 
 <div class="has-text-right">
+  <%= button_to "Buy now!", checkout_create_path, params: {id: line_item.product.id}, remote: true, class: "button is-small mb4"  %> <br>
   <%= link_to 'Remove Item', line_item, method: :delete, data: { confirm: "Are you sure? " }, class: "button is-small mb4" %>
 </div>
 
