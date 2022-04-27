@@ -36,6 +36,8 @@ gem 'omniauth-facebook'
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 gem 'bootstrap-sass'
 gem 'stripe', '~> 5.52'
+gem 'activeadmin', '~> 2.12'
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
